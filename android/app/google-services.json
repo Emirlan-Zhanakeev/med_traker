@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "761155720603",
+    "project_id": "flutterfirebasetraker",
+    "storage_bucket": "flutterfirebasetraker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761155720603:android:3a52cb5f90a010c42d3d3e",
+        "android_client_info": {
+          "package_name": "com.example.untitled1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "761155720603-47mp10m9j8hsoti2jbk3skmhbunqv1dm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR50qGamZUtcGBpO9e2K45UDRYQWwn5Jg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "761155720603-47mp10m9j8hsoti2jbk3skmhbunqv1dm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
