@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,26 +13,49 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+
+
   ///controllers
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+  final _firstNameController = TextEditingController();
 
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
     _confirmPasswordController.dispose();
+    _firstNameController.dispose();
     super.dispose();
   }
 
   Future signUp() async {
+    ///creating user
     if (passwordConfirmed()) {
       FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
+
+      ///add user details
+      addUserDetails(
+        _firstNameController.text.trim(),
+        _emailController.text.trim(),
+        // user.uid.trim(),
+      );
     }
+  }
+
+  ///taking details
+  Future addUserDetails(String firstName, String email, ) async {
+    await FirebaseFirestore.instance.collection('users').add(
+      {
+        'first name': firstName,
+        'email': email,
+        // 'uid': uid,
+      },
+    );
   }
 
   bool passwordConfirmed() {
@@ -72,6 +96,25 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(
                 height: 50,
               ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    border: Border.all(color: Colors.white),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: TextField(
+                      controller: _firstNameController,
+                      decoration: const InputDecoration(
+                          border: InputBorder.none, hintText: 'Name'),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
 
               ///Email TextField
               Padding(

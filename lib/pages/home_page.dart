@@ -10,6 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   final user = FirebaseAuth.instance.currentUser!;
 
   @override
@@ -25,7 +26,13 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Center(
-        child: Text(user.email!),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(user.uid),
+            Text(user.email!),
+          ],
+        ),
       ),
     );
   }
