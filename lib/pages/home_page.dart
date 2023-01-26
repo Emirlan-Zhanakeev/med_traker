@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -25,15 +26,42 @@ class _HomePageState extends State<HomePage> {
               icon: const Icon(Icons.logout))
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(user.uid),
-            Text(user.email!),
-          ],
+      body:  Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+    /*StreamBuilder(
+    stream: FirebaseFirestore.instance.collection('users').snapshots(),
+    builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+      return Text(data)
+    }
+    ),*/
+              
+            /*  StreamBuilder(
+                stream: FirebaseFirestore.instance.collection('users').snapshots(),
+                builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if(snapshot.hasData) {
+                    return Expanded(
+                        child:
+                      ListView.builder(
+                      itemCount: snapshot.data!.docs.length,
+                        shrinkWrap: true,
+                        itemBuilder: (context, i) {
+                  var data = snapshot.data!.docs[i];
+                      return Text(data['email']);
+                    }
+                      ),
+                    );
+                  } else {
+                    return CircularProgressIndicator();
+                  }
+                },
+              ),
+*/
+
+              Text(user.uid),
+              Text(user.email!),
+            ],
         ),
-      ),
     );
   }
 }
