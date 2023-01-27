@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class EnterNewHabitBox extends StatelessWidget {
+class MyAlertBox extends StatelessWidget {
 
   final controller;
   final VoidCallback onSave;
   final VoidCallback onCancel;
 
-  const EnterNewHabitBox({Key? key, this.controller, required this.onSave, required this.onCancel}) : super(key: key);
+  const MyAlertBox({Key? key, this.controller, required this.onSave, required this.onCancel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
